@@ -1,27 +1,33 @@
-# Script to train machine learning model.
-
+'''
+Script to train machine learning model.
+'''
+import pandas as pd
 from sklearn.model_selection import train_test_split
+import os
+import sys
 
-# Add the necessary imports for the starter code.
 
-# Add code to load in the data.
+# Load in the development data
+data = pd.read_csv(os.path.join(sys.path[1],"data","census.csv"))
+print(data.shape)
+
 
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
-train, test = train_test_split(data, test_size=0.20)
+# train, test = train_test_split(data, test_size=0.20)
 
-cat_features = [
-    "workclass",
-    "education",
-    "marital-status",
-    "occupation",
-    "relationship",
-    "race",
-    "sex",
-    "native-country",
-]
-X_train, y_train, encoder, lb = process_data(
-    train, categorical_features=cat_features, label="salary", training=True
-)
+# cat_features = [
+#     "workclass",
+#     "education",
+#     "marital-status",
+#     "occupation",
+#     "relationship",
+#     "race",
+#     "sex",
+#     "native-country",
+# ]
+# X_train, y_train, encoder, lb = process_data(
+#     train, categorical_features=cat_features, label="salary", training=True
+# )
 
 # Proces the test data with the process_data function.
 
