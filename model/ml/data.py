@@ -44,15 +44,19 @@ def process_data(
         passed in.
     """
 
+    # If a label is specified, create the label and feature datasets
     if label is not None:
         y = X[label]
         X = X.drop([label], axis=1)
     else:
         y = np.array([])
 
+    # Get caterogical and continuous variable names
     X_categorical = X[categorical_features].values
     X_continuous = X.drop(*[categorical_features], axis=1)
 
+    # If we are training, fit and apply the OneHot and LabelBinarizer transformations
+    # If we are not training, (inference / validation) just apply the training fit and apply the transformations
     if training is True:
         encoder = OneHotEncoder(sparse=False, handle_unknown="ignore")
         lb = LabelBinarizer()
@@ -66,5 +70,7 @@ def process_data(
         except AttributeError:
             pass
 
+    # Create the transformed featureS dataset
     X = np.concatenate([X_continuous, X_categorical], axis=1)
+
     return X, y, encoder, lb
