@@ -6,13 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="51a20140-2190-4b21-aef1-1819c61f2660" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/ml/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/ml/data.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/ml/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/rf_model.pk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/train_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/census.csv" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/census.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/census_old.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_artifacts/encoder.pk" beforeDir="false" afterPath="$PROJECT_DIR$/model_artifacts/encoder.pk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_artifacts/lb.pk" beforeDir="false" afterPath="$PROJECT_DIR$/model_artifacts/lb.pk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/test_model_build.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_model_build.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_model.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

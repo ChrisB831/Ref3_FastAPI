@@ -3,10 +3,7 @@ dont call with pytest (because it doesnt add root to sys.path so all
 our absolute imports wont work instead call from root
 python -m pytest -vv
 '''
-
-import pandas as pd
 import os
-import sys
 import pytest
 import scipy.stats
 from sklearn.model_selection import train_test_split
@@ -21,7 +18,7 @@ def data(request):
 
     TODO Get rid of the hard coded path. Pass as an argument via conftest.py
     '''
-    data = load_data(os.path.join(os.getcwd(), "data", "census.csv"))
+    data = load_data(os.path.join(os.getcwd(), "raw_data", "census.csv"))
     return(data)
 
 

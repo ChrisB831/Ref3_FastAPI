@@ -18,7 +18,6 @@ def load_data(pth):
     return data
 
 
-
 def process_data(
     X, categorical_features=[], label=None, training=True, encoder=None, lb=None
 ):

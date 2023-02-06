@@ -4,10 +4,10 @@ Script to train machine learning model.
 import pandas as pd
 import os
 import logging
-from ml.data import load_data, process_data
 from sklearn.model_selection import train_test_split
+from ml.data import load_data, process_data
 from ml.model import train_model, save_model_artifacts, load_model_artifacts, \
-    compute_model_metrics, inference
+                      compute_model_metrics, inference, get_performance_slices
 
 
 # Initialise a logging object
@@ -30,9 +30,8 @@ cat_features = [
 
 
 def go():
-
     # Load in the development data
-    data = load_data(os.path.join(os.getcwd(),"data","census.csv"))
+    data = load_data(os.path.join(os.getcwd(), "raw_data", "census.csv"))
     logger.info(f"Dev data imported: Shape is {data.shape}")
 
 
@@ -68,8 +67,7 @@ def go():
     # Get training performance
     y_train_preds = inference(rf_model, X_train)
     precision, recall, fbeta = compute_model_metrics(y_train, y_train_preds)
-    print("Training data (precision recall fbeta)")
-    print(f"{precision:.3f}\t{recall:.3f}\t{fbeta:.3f}")
+    logger.info(f"Training data performance (precision recall fbeta): {precision:.3f}\t{recall:.3f}\t{fbeta:.3f}")
 
 
     # Get test performance
@@ -78,15 +76,13 @@ def go():
     )
     y_test_preds = inference(rf_model, X_test)
     precision, recall, fbeta = compute_model_metrics(y_test, y_test_preds)
-    print("Test data (precision recall fbeta)")
-    print(f"{precision:.3f}\t{recall:.3f}\t{fbeta:.3f}")
-
-
-
+    logger.info(f"Test data performance (precision recall fbeta): {precision:.3f}\t{recall:.3f}\t{fbeta:.3f}")
 
 
     # Get performance on data slices
-    # Use categorical features
+    get_performance_slices(
+                os.path.join(os.getcwd(),"model_artifacts"), rf_model, test,
+                cat_features, "salary", encoder, lb)
 
 
 if __name__ == "__main__":

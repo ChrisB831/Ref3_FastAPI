@@ -1,0 +1,117 @@
+Variable: workclass                       n     p_pos   precision   recall  fbeta 
+	Slice: Private                        4545  0.224	0.847    	0.419	0.561
+	Slice: Self-emp-inc                   210   0.538	0.851    	0.504	0.633
+	Slice: Federal-gov                    181   0.359	0.806    	0.385	0.521
+	Slice: ?                              384   0.102	0.688    	0.282	0.400
+	Slice: Self-emp-not-inc               489   0.272	0.725    	0.496	0.589
+	Slice: Local-gov                      430   0.316	0.849    	0.456	0.593
+	Slice: State-gov                      270   0.293	0.860    	0.620	0.721
+	Slice: Without-pay                    3     0.000	1.000    	1.000	1.000
+	Slice: Never-worked                   1     0.000	1.000    	1.000	1.000
+
+Variable: education                       n     p_pos   precision   recall  fbeta 
+	Slice: HS-grad                        2040  0.161	0.980    	0.146	0.255
+	Slice: Bachelors                      1076  0.436	0.776    	0.729	0.752
+	Slice: Some-college                   1510  0.203	0.977    	0.137	0.240
+	Slice: 10th                           201   0.055	1.000    	0.000	0.000
+	Slice: 1st-4th                        33    0.061	1.000    	0.500	0.667
+	Slice: Assoc-voc                      269   0.238	0.875    	0.109	0.194
+	Slice: 11th                           225   0.040	1.000    	0.444	0.615
+	Slice: Masters                        355   0.527	0.850    	0.727	0.784
+	Slice: Assoc-acdm                     224   0.241	1.000    	0.148	0.258
+	Slice: Prof-school                    110   0.718	0.841    	0.873	0.857
+	Slice: 9th                            91    0.055	1.000    	0.000	0.000
+	Slice: 5th-6th                        71    0.014	1.000    	1.000	1.000
+	Slice: 7th-8th                        142   0.056	1.000    	0.125	0.222
+	Slice: 12th                           82    0.073	1.000    	0.167	0.286
+	Slice: Doctorate                      72    0.708	0.923    	0.706	0.800
+	Slice: Preschool                      12    0.000	1.000    	1.000	1.000
+
+Variable: marital-status                  n     p_pos   precision   recall  fbeta 
+	Slice: Never-married                  2102  0.049	1.000    	0.029	0.057
+	Slice: Married-civ-spouse             3046  0.447	0.827    	0.499	0.622
+	Slice: Separated                      229   0.048	1.000    	0.273	0.429
+	Slice: Married-spouse-absent          79    0.038	1.000    	0.333	0.500
+	Slice: Widowed                        186   0.086	1.000    	0.000	0.000
+	Slice: Divorced                       866   0.097	1.000    	0.095	0.174
+	Slice: Married-AF-spouse              5     0.200	1.000    	1.000	1.000
+
+Variable: occupation                      n     p_pos   precision   recall  fbeta 
+	Slice: Craft-repair                   802   0.246	0.809    	0.193	0.311
+	Slice: Sales                          683   0.286	0.821    	0.400	0.538
+	Slice: Handlers-cleaners              291   0.069	0.750    	0.150	0.250
+	Slice: Exec-managerial                821   0.496	0.864    	0.595	0.705
+	Slice: Adm-clerical                   758   0.141	0.794    	0.252	0.383
+	Slice: Tech-support                   190   0.284	0.909    	0.370	0.526
+	Slice: Other-service                  680   0.040	1.000    	0.148	0.258
+	Slice: Transport-moving               303   0.218	0.667    	0.121	0.205
+	Slice: ?                              385   0.101	0.688    	0.282	0.400
+	Slice: Prof-specialty                 830   0.440	0.829    	0.652	0.730
+	Slice: Machine-op-inspct              425   0.096	0.846    	0.268	0.407
+	Slice: Farming-fishing                177   0.107	0.500    	0.263	0.345
+	Slice: Priv-house-serv                33    0.000	1.000    	1.000	1.000
+	Slice: Protective-serv                133   0.331	0.786    	0.250	0.379
+	Slice: Armed-Forces                   2     0.000	1.000    	1.000	1.000
+
+Variable: relationship                    n     p_pos   precision   recall  fbeta 
+	Slice: Not-in-family                  1664  0.105	1.000    	0.075	0.139
+	Slice: Husband                        2688  0.452	0.821    	0.533	0.646
+	Slice: Unmarried                      664   0.054	1.000    	0.028	0.054
+	Slice: Other-relative                 195   0.031	1.000    	0.167	0.286
+	Slice: Wife                           311   0.457	0.971    	0.232	0.375
+	Slice: Own-child                      991   0.009	1.000    	0.111	0.200
+
+Variable: race                            n     p_pos   precision   recall  fbeta 
+	Slice: White                          5603  0.258	0.833    	0.443	0.578
+	Slice: Asian-Pac-Islander             206   0.262	0.738    	0.574	0.646
+	Slice: Black                          603   0.119	0.875    	0.292	0.438
+	Slice: Other                          41    0.098	1.000    	0.250	0.400
+	Slice: Amer-Indian-Eskimo             60    0.100	1.000    	0.500	0.667
+
+Variable: sex                             n     p_pos   precision   recall  fbeta 
+	Slice: Male                           4371  0.310	0.824    	0.487	0.613
+	Slice: Female                         2142  0.105	0.972    	0.156	0.268
+
+Variable: native-country                  n     p_pos   precision   recall  fbeta 
+	Slice: United-States                  5792  0.246	0.836    	0.435	0.572
+	Slice: China                          14    0.286	0.667    	1.000	0.800
+	Slice: Columbia                       11    0.091	1.000    	1.000	1.000
+	Slice: Jamaica                        21    0.143	0.000    	0.000	0.000
+	Slice: Mexico                         138   0.051	1.000    	0.429	0.600
+	Slice: El-Salvador                    22    0.136	1.000    	0.333	0.500
+	Slice: Puerto-Rico                    28    0.143	1.000    	0.750	0.857
+	Slice: Philippines                    45    0.289	0.889    	0.615	0.727
+	Slice: Nicaragua                      9     0.222	1.000    	0.000	0.000
+	Slice: Italy                          25    0.400	1.000    	0.400	0.571
+	Slice: ?                              116   0.241	0.739    	0.607	0.667
+	Slice: Ireland                        3     0.333	1.000    	0.000	0.000
+	Slice: Germany                        31    0.355	1.000    	0.364	0.533
+	Slice: Dominican-Republic             15    0.067	1.000    	0.000	0.000
+	Slice: Japan                          7     0.571	0.750    	0.750	0.750
+	Slice: India                          16    0.375	0.714    	0.833	0.769
+	Slice: Canada                         21    0.381	0.667    	0.250	0.364
+	Slice: Taiwan                         10    0.400	1.000    	0.750	0.857
+	Slice: Peru                           7     0.143	1.000    	0.000	0.000
+	Slice: Poland                         14    0.286	1.000    	0.500	0.667
+	Slice: France                         6     0.833	1.000    	0.200	0.333
+	Slice: England                        25    0.360	0.800    	0.444	0.571
+	Slice: Hungary                        7     0.143	1.000    	1.000	1.000
+	Slice: Cuba                           29    0.310	0.500    	0.222	0.308
+	Slice: Thailand                       6     0.167	1.000    	0.000	0.000
+	Slice: Iran                           9     0.556	0.600    	0.600	0.600
+	Slice: Outlying-US(Guam-USVI-etc)     3     0.000	1.000    	1.000	1.000
+	Slice: Vietnam                        15    0.067	1.000    	0.000	0.000
+	Slice: Portugal                       8     0.125	1.000    	0.000	0.000
+	Slice: Yugoslavia                     5     0.400	0.667    	1.000	0.800
+	Slice: South                          15    0.267	0.500    	0.250	0.333
+	Slice: Hong                           4     0.500	1.000    	1.000	1.000
+	Slice: Guatemala                      10    0.000	1.000    	1.000	1.000
+	Slice: Trinadad&Tobago                4     0.000	1.000    	1.000	1.000
+	Slice: Laos                           4     0.250	1.000    	1.000	1.000
+	Slice: Haiti                          5     0.000	1.000    	1.000	1.000
+	Slice: Scotland                       2     0.500	1.000    	0.000	0.000
+	Slice: Greece                         4     0.000	1.000    	1.000	1.000
+	Slice: Ecuador                        3     0.000	1.000    	1.000	1.000
+	Slice: Honduras                       3     0.000	1.000    	1.000	1.000
+	Slice: Cambodia                       1     0.000	1.000    	1.000	1.000
+

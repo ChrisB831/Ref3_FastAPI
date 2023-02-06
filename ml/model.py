@@ -1,12 +1,14 @@
 '''
-
+TBD
 
 
 '''
+import pandas as pd
 import os
 import pickle
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 from sklearn.ensemble import RandomForestClassifier
+from .data import process_data
 
 
 
@@ -109,9 +111,9 @@ def compute_model_metrics(y, preds):
     '''Compute model performance metrics using precision, recall, and F1.
 
     Arguments:
-        y : np.array
+        y : np.array / pandas.Series
             Known labels, binarized.
-        preds : np.array
+        preds : np.array / pandas.Series
             Predicted labels, binarized.
 
     Returns:
@@ -125,7 +127,66 @@ def compute_model_metrics(y, preds):
     return precision, recall, fbeta
 
 
-def get_performance_slices(var_list):
-    '''    
+def get_performance_slices(
+        pth, model, test, cat_features, label, encoder, lb):
     '''
-    pass
+    Arguments:
+        pth : str
+            Path of model_artifacts folder
+        model : sklearn.ensemble._forest.RandomForestClassifier
+            Trained machine learning model.
+        test : pd.DataFrame
+            Dataframe containing the features and label.
+        cat_features: list[str]
+            List containing the names of the categorical features (default=[])
+        label : str
+            Name of the label column in `X`. If None, then an empty array will be returned
+            for y (default=None)
+        encoder : sklearn.preprocessing._encoders.OneHotEncoder
+            Trained sklearn OneHotEncoder, only used if training=False.
+        lb : sklearn.preprocessing._label.LabelBinarizer
+            Trained sklearn LabelBinarizer, only used if training=False.
+
+    Returns:
+        None
+
+    TODO Instead of creating a dataframe do it all in in a np array
+    '''
+    # Apply the transformations
+    X_test, y_test, encoder, lb = process_data(
+        test, categorical_features=cat_features, label="salary",
+        training=False, encoder = encoder, lb = lb
+    )
+
+    # Get predictions and create dataframe to slice
+    y_test_preds = inference(model, X_test)
+    slicer_df = test[cat_features].copy(deep = True).reset_index(drop = True)
+    slicer_df['labels'] = pd.Series(y_test)
+    slicer_df['preds'] = pd.Series(y_test_preds)
+
+
+    with open(os.path.join(pth, "slice_output.txt"), "w") as fp:
+
+        # Get performance metrics per slice
+        for var in cat_features:
+            fp.write(
+                f"Variable: {var:<31} {'n':<5} {'p_pos':<7} "
+                f"{'precision':<11} {'recall':<7} {'fbeta':<6}"
+            )
+
+            for slice in slicer_df[var].unique():
+
+                # Get number of rows in slice and proportion of positive lables
+                n = (slicer_df[var] == slice).sum()
+                p_pos = slicer_df.loc[slicer_df[var] == slice, 'labels'].sum() / n
+
+                precision, recall, fbeta = compute_model_metrics(
+                    slicer_df.loc[slicer_df[var] == slice, 'labels'],
+                    slicer_df.loc[slicer_df[var] == slice, 'preds']
+                )
+
+                fp.write(
+                    f"\n\tSlice: {slice:<30} {n:<5} {p_pos:<5.3f}\t"
+                    f"{precision:<9.3f}\t{recall:.3f}\t{fbeta:.3f}"
+                )
+            fp.write("\n\n")
