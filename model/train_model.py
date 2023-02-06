@@ -59,7 +59,6 @@ logger.info(f"Data preprocessing of training data complete")
 # Train and save the model
 rf_model = train_model(X_train, y_train)
 logger.info(f"Model training complete")
-
 fpath = os.path.join(sys.path[1],"model","rf_model.pk")
 with open(fpath, 'wb') as fp:
   pickle.dump(rf_model, fp)
@@ -98,3 +97,7 @@ print(f"Fbeta:\t\t{fbeta}")
 
 # Get performance on data slices
 # Use categorical features
+
+
+
+

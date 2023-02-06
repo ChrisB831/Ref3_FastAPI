@@ -3,6 +3,9 @@ from sklearn.ensemble import RandomForestClassifier
 
 
 
+
+
+
 def train_model(X_train, y_train):
     """
     Trains a machine learning model and returns it.
@@ -23,10 +26,10 @@ def train_model(X_train, y_train):
     """
 
     # Set the random state for reproducable results
-    rfc = RandomForestClassifier(random_state=831)
+    # Number of estimator reduced to stop overtraining
+    rfc = RandomForestClassifier(random_state=831, max_depth = 5, n_estimators = 50)
     rfc.fit(X_train,y_train)
     return(rfc)
-
 
 
 

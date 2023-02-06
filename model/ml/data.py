@@ -58,7 +58,7 @@ def process_data(
     # If we are training, fit and apply the OneHot and LabelBinarizer transformations
     # If we are not training, (inference / validation) just apply the training fit and apply the transformations
     if training is True:
-        encoder = OneHotEncoder(sparse=False, handle_unknown="ignore")
+        encoder = OneHotEncoder(sparse_output=False, handle_unknown="ignore")
         lb = LabelBinarizer()
         X_categorical = encoder.fit_transform(X_categorical)
         y = lb.fit_transform(y.values).ravel()
