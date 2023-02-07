@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="51a20140-2190-4b21-aef1-1819c61f2660" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/census.csv" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/census.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/census_old.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_artifacts/encoder.pk" beforeDir="false" afterPath="$PROJECT_DIR$/model_artifacts/encoder.pk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_artifacts/lb.pk" beforeDir="false" afterPath="$PROJECT_DIR$/model_artifacts/lb.pk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test_model_build.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_model_build.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_model.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,14 +25,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/chrisbon/miniconda3/bin/conda"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/chrisbon/miniconda3/bin/conda&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="train_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="p3" />

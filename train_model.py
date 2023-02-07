@@ -34,6 +34,8 @@ def go():
     data = load_data(os.path.join(os.getcwd(), "raw_data", "census.csv"))
     logger.info(f"Dev data imported: Shape is {data.shape}")
 
+    print(data.dtypes)
+
 
     # Spit data into train (80%) and test (20%) dataframes
     # Seed for reproductability
