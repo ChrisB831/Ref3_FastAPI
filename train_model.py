@@ -30,11 +30,10 @@ cat_features = [
 
 
 def go():
+
     # Load in the development data
     data = load_data(os.path.join(os.getcwd(), "raw_data", "census.csv"))
     logger.info(f"Dev data imported: Shape is {data.shape}")
-
-    print(data.dtypes)
 
 
     # Spit data into train (80%) and test (20%) dataframes
@@ -74,7 +73,9 @@ def go():
 
     # Get test performance
     X_test, y_test, encoder, lb = process_data(
-        test, categorical_features=cat_features, label="salary", training=False, encoder = encoder, lb = lb
+        # test, categorical_features=cat_features, label="salary", training=False, encoder = encoder, lb = lb
+        test, categorical_features = cat_features, label = "salary", training = False, encoder = encoder, lb = lb
+
     )
     y_test_preds = inference(rf_model, X_test)
     precision, recall, fbeta = compute_model_metrics(y_test, y_test_preds)
@@ -85,7 +86,7 @@ def go():
     get_performance_slices(
                 os.path.join(os.getcwd(),"model_artifacts"), rf_model, test,
                 cat_features, "salary", encoder, lb)
-
+    logger.info(f"slice_output.txt saved")
 
 if __name__ == "__main__":
     go()

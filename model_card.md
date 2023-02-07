@@ -7,9 +7,7 @@ For additional information see the Model Card paper: https://arxiv.org/pdf/1810.
 ## Model Details
 
 * Developed by Christopher Bonham in the "Deploying a Scalable ML Pipeline in Production" project as part of the "Machine Learning DevOps Engineer" Udacity nanodegree
-* TBD
-
-*Person or organization developing model – Model date – Model version – Model type – Information about training algorithms, parameters, fairness constraints or other applied approaches, and features – Paper or other resource for more information – Citation details – License – Where to send questions or comments about the model*
+* **TBD** *Person or organization developing model – Model date – Model version – Model type – Information about training algorithms, parameters, fairness constraints or other applied approaches, and features – Paper or other resource for more information – Citation details – License – Where to send questions or comments about the model*
 
 
 
@@ -77,6 +75,10 @@ Highlighting a few illustrative cases, the model is...
 * 1.27 times more likely to incorrectly predict a black individual has a lower income when compared to a white individual
 * 1.65 times more likely to incorrectly predict a female individual has a lower income when compared to a male individual
 * generally more likely to incorrectly predict individual from "non-professional" occupation (i.e. machine operator, service, cleaner) has a lower income when compared to a "professional" occupation
+
+
+
+*Mention something about the slices*
 
 
 
