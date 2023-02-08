@@ -35,7 +35,7 @@ def data(request):
     TODO Get rid of the hard coded path. Pass as an argument via conftest.py
     '''
     data = load_data(os.path.join(os.getcwd(), "raw_data", "census.csv"))
-    return(data)
+    return data
 
 
 def test_dev_data_has_cols(data):
