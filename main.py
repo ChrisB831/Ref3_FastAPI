@@ -2,7 +2,7 @@
 App functionality
 
 AUTHOR: Chris Bonham
-DATE:   XXXXXXXXXXXXXXXXXXXXX February 2023
+DATE:   9th February 2023
 
 To run the app, use uvicorn in the shell:
     uvicorn main:app --reload

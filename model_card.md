@@ -1,19 +1,20 @@
 # Model Card
-
 For additional information see the Model Card paper: https://arxiv.org/pdf/1810.03993.pdf
 
 
 
 ## Model Details
-
 * Developed by Christopher Bonham in the "Deploying a Scalable ML Pipeline in Production" project as part of the "Machine Learning DevOps Engineer" Udacity nanodegree
-* **TBD** *Person or organization developing model – Model date – Model version – Model type – Information about training algorithms, parameters, fairness constraints or other applied approaches, and features – Paper or other resource for more information – Citation details – License – Where to send questions or comments about the model*
+* Release date is 9th February 2023
+* The classifier was based on a Random Forest Classifier (see [Link](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)). To avoid over training, the following parameters we changed from their default value
+  *  `max_depth` = 5
+  * `n_estimators`=  50
 
 
 
 ## Intended Use
-
 The model is used to predict whether income exceeds $50K/yr based upon individual level data
+
 
 
 
@@ -66,22 +67,21 @@ The performance metrics suggests that over fitting is not present in the model
 
 
 ## Ethical Considerations
+A slice analysis has indicated that  model performance changes significantly across categorical levels
+
 An analysis using the Aequitas tool has indicated that the model is not fair for at least some classes within the data, specifically
-*  Some groups are not represented equally in the training data and that a classifier gives equal probability with respect to a target variable, independent of whether a subject is or is not contained within a protected group
+
+* Some groups are not represented equally in the training data and that a classifier gives equal probability with respect to a target variable, independent of whether a subject is or is not contained within a protected group
+
 * Not all groups have proportionately equal type 1 (false positive) and type 2 (false negative) rates made by the model
 
-Highlighting a few illustrative cases, the model is...
 
+Highlighting a few illustrative cases, the model is...
 * 1.27 times more likely to incorrectly predict a black individual has a lower income when compared to a white individual
 * 1.65 times more likely to incorrectly predict a female individual has a lower income when compared to a male individual
 * generally more likely to incorrectly predict individual from "non-professional" occupation (i.e. machine operator, service, cleaner) has a lower income when compared to a "professional" occupation
 
 
 
-*Mention something about the slices*
-
-
-
 ## Caveats and Recommendations
-
-TBD
+It is acknowledged that the developed model is very rudimentary. Its is suggested that performance may be increased by additional feature engineering and hyperparameter tuning.

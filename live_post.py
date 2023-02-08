@@ -3,7 +3,7 @@ Test a POST request to the "https://p3-app.herokuapp.com/inference"
 end point....
 
 AUTHOR: Chris Bonham
-DATE:   XXXXXXXXXXXXXXXXXXXXX February 2023
+DATE:   9th February 2023
 
 To run
 1. Make sure app is runnng on Heroku

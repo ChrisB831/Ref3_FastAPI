@@ -2,7 +2,7 @@
 Model build call
 
 AUTHOR: Chris Bonham
-DATE:   XXXXXXXXXXXXXXXXXXXXX February 2023
+DATE:   9th February 2023
 
 Script to train machine learning model.
 
