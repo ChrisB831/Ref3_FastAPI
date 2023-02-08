@@ -1,15 +1,16 @@
 '''
-TBD
+Test script for the API defined in ./main.py
 
-Very basic test script for the app containing 3 test
-NB Pytest must be installed
+AUTHOR: Chris Bonham
+DATE:   XXXXXXXXXXXXXXXXXXXXX February 2023
 
-To run, go to the folder root
+This test script is called automatically when the code is pushed to the
+remote repo XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-python -m pytest -vv
-python -m pytest ./test/test_app.py -vv
+To run in isolation
+1) Go to the project root
+2) python -m pytest ./test/test_app.py -vv
 '''
-
 from fastapi.testclient import TestClient
 from main import app  # Import the app object from main
 import json
@@ -19,39 +20,46 @@ import json
 client = TestClient(app)
 
 
-
 def test_GET_request():
     '''Tests a GET request to the root end point...
     1) Successfully executes
     2) Returns the expected response body.
-       As the response body will change with different models. We check for two default keys,
-       the model description and the type of the model used
-       NB Checking the response body for the current model is also included for completeness
+       As the response body will change with different models. We check for two
+       default keys, the model description and the type of the model used
+       NB Checking the response body for the current model is also included for
+       completeness
 
-    TBD
-
+    Arguments: None
+    Returns: None
     '''
+
+    # Make a GET request to the endpoint
     r = client.get("/")
     rb = r.json()
+
+    # Test the response
     assert r.status_code == 200
     assert 'Model_description' in rb
     assert "Model_type" in rb
     assert rb == {
-        "Model_description":"High salary classifier",
-        "Model_type":"<class 'sklearn.ensemble._forest.RandomForestClassifier'>",
-        "n_estimators":50,
-        "split_criterion":"gini",
-        "max_depth":5,
-        "n_features":108
+        "Model_description": "High salary classifier",
+        "Model_type":
+            "<class 'sklearn.ensemble._forest.RandomForestClassifier'>",
+        "n_estimators": 50,
+        "split_criterion": "gini",
+        "max_depth": 5,
+        "n_features": 108
     }
 
 
-
 def test_POST_incorrect_rersponse_body():
-    '''Test a POST request to the "/inference" end point with an incorrect request body
+    '''Test a POST request to the "/inference" end point with an incorrect
+    request body
 
-    TBD
+    Arguments: None
+    Returns: None
     '''
+
     # Create the correct request body
     data = {
         "age": "thirty-nine",      # Age incorrectly specified as a string
@@ -72,9 +80,9 @@ def test_POST_incorrect_rersponse_body():
 
     # Make a POST request to the endpoint and pass the request body
     r = client.post("/inference", data=json.dumps(data))
+
+    # Test the response
     assert r.status_code == 422
-
-
 
 
 def test_POST_request_predict_zero():
@@ -82,8 +90,10 @@ def test_POST_request_predict_zero():
     1) Successfully executes
     2) The test request body result in a prediction of 0
 
-    TBD
+    Arguments: None
+    Returns: None
     '''
+
     # Create the request body
     data = {
         "age": 39,
@@ -105,9 +115,9 @@ def test_POST_request_predict_zero():
     # Make a POST request to the endpoint and pass the request body
     r = client.post("/inference", data=json.dumps(data))
 
+    # Test the response
     assert r.status_code == 200
     assert r.json() == {"prediction": 0}
-
 
 
 def test_POST_request_predict_one():
@@ -115,8 +125,10 @@ def test_POST_request_predict_one():
     1) Successfully executes
     2) The test request body result in a prediction of 1
 
-    TBD
+    Arguments: None
+    Returns: None
     '''
+
     # Create the request body
     data = {
         "age": 42,
@@ -138,51 +150,6 @@ def test_POST_request_predict_one():
     # Make a POST request to the endpoint and pass the request body
     r = client.post("/inference", data=json.dumps(data))
 
+    # Test the response
     assert r.status_code == 200
     assert r.json() == {"prediction": 1}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-############################
-# POST / PUT REQUEST TESTS #
-############################
-
-'''
-Test that a correct call..
-1. Returns the sucess return code of 200
-'''
-# def test_post_data_success():
-#     # Create the correct request body
-#     data = {"feature_1": 1, "feature_2": "test string"}
-#
-#     # Make a POST request to the endpoint and pass the request body
-#     r = client.post("/data/", data=json.dumps(data))
-#
-#     # Check the response code is correct
-#     assert r.status_code == 200
-#
-#
-# '''
-# Test that a incorrect call (feature_1 fail)..
-# 1. Returns the failure code of 400
-# '''
-# def test_post_data_fail():
-#     # Create the incorrect request body
-#     data = {"feature_1": -5, "feature_2": "test string"}
-#
-#     # Make a POST request to the endpoint and pass the request body
-#     r = client.post("/data/", data=json.dumps(data))
-#
-#     # Check the response code is correct
-#     assert r.status_code == 400

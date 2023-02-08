@@ -1,7 +1,8 @@
 '''
-TBD
+Functions to support the model build
 
-
+AUTHOR: Chris Bonham
+DATE:   XXXXXXXXXXXXXXXXXXXXX February 2023
 '''
 import pandas as pd
 import os
@@ -9,7 +10,6 @@ import pickle
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 from sklearn.ensemble import RandomForestClassifier
 from .data import process_data
-
 
 
 def train_model(X_train, y_train):
@@ -30,14 +30,16 @@ def train_model(X_train, y_train):
     '''
     # Set the random state for reproducable results
     # Number of estimator reduced to stop overtraining
-    rfc = RandomForestClassifier(random_state=831, max_depth = 5, n_estimators = 50)
-    rfc.fit(X_train,y_train)
+    rfc = RandomForestClassifier(
+        random_state=831, max_depth=5, n_estimators=50
+    )
+    rfc.fit(X_train, y_train)
     return(rfc)
 
 
 def save_model_artifacts(pth, model, encoder, lb):
     '''Save the model and the transformers in the model_artifacts folder
-    
+
     Arguments:
         pth : str
             Path of model_artifacts folder
@@ -52,13 +54,13 @@ def save_model_artifacts(pth, model, encoder, lb):
         none
     '''
     with open(os.path.join(pth, "model.pk"), 'wb') as fp:
-      pickle.dump(model, fp)
+        pickle.dump(model, fp)
 
     with open(os.path.join(pth, "encoder.pk"), 'wb') as fp:
-      pickle.dump(encoder, fp)
+        pickle.dump(encoder, fp)
 
     with open(os.path.join(pth, "lb.pk"), 'wb') as fp:
-      pickle.dump(lb, fp)
+        pickle.dump(lb, fp)
 
 
 def load_model_artifacts(pth):
@@ -140,8 +142,8 @@ def get_performance_slices(
         cat_features: list[str]
             List containing the names of the categorical features (default=[])
         label : str
-            Name of the label column in `X`. If None, then an empty array will be returned
-            for y (default=None)
+            Name of the label column in `X`. If None, then an empty array will
+            be returned for y (default=None)
         encoder : sklearn.preprocessing._encoders.OneHotEncoder
             Trained sklearn OneHotEncoder, only used if training=False.
         lb : sklearn.preprocessing._label.LabelBinarizer
@@ -155,18 +157,16 @@ def get_performance_slices(
     # Apply the transformations
     X_test, y_test, encoder, lb = process_data(
         test, categorical_features=cat_features, label="salary",
-        training=False, encoder = encoder, lb = lb
+        training=False, encoder=encoder, lb=lb
     )
 
     # Get predictions and create dataframe to slice
     y_test_preds = inference(model, X_test)
-    slicer_df = test[cat_features].copy(deep = True).reset_index(drop = True)
+    slicer_df = test[cat_features].copy(deep=True).reset_index(drop=True)
     slicer_df['labels'] = pd.Series(y_test)
     slicer_df['preds'] = pd.Series(y_test_preds)
 
-
     with open(os.path.join(pth, "slice_output.txt"), "w") as fp:
-
         # Get performance metrics per slice
         for var in cat_features:
             fp.write(
@@ -178,7 +178,8 @@ def get_performance_slices(
 
                 # Get number of rows in slice and proportion of positive lables
                 n = (slicer_df[var] == slice).sum()
-                p_pos = slicer_df.loc[slicer_df[var] == slice, 'labels'].sum() / n
+                mask = slicer_df[var] == slice
+                p_pos = slicer_df.loc[mask, 'labels'].sum() / n
 
                 precision, recall, fbeta = compute_model_metrics(
                     slicer_df.loc[slicer_df[var] == slice, 'labels'],

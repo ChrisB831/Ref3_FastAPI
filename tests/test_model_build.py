@@ -1,7 +1,15 @@
 '''
-dont call with pytest (because it doesnt add root to sys.path so all
-our absolute imports wont work instead call from root
-python -m pytest -vv
+Test script for the model build defined in ./train_model.py
+
+AUTHOR: Chris Bonham
+DATE:   XXXXXXXXXXXXXXXXXXXXX February 2023
+
+This test script is called automatically when the code is pushed to the
+remote repo XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+To run in isolation
+1) Go to the project root
+2) python -m pytest ./test/test_model_build -vv
 '''
 import os
 import pytest
@@ -15,6 +23,14 @@ from ml.model import train_model
 def data(request):
     '''
     Fixture to load in development data
+    NB Scope is session so input dataset can be modified by a test
+
+    Argument:
+        request: PyTest request object
+
+    Returns:
+        data: Pandas dataframe
+        The development data
 
     TODO Get rid of the hard coded path. Pass as an argument via conftest.py
     '''
@@ -25,10 +41,12 @@ def data(request):
 def test_dev_data_has_cols(data):
     '''Test development data contains the expected columns and by
     implication are also in the same order
-    input:
-        data: pandas dataframe. Test data
-    output:
-        None
+
+    Argument:
+        data: Pandas dataframe
+        Development data
+
+    Returns: None
     '''
 
     expected_colums = [
@@ -54,10 +72,11 @@ def test_dev_data_has_cols(data):
 def test_dev_data_not_empty(data):
     '''Test development data contains records
 
-    input:
-        data: pandas dataframe. Test data
-    output:
-        None
+    Argument:
+        data: Pandas dataframe
+        Development data
+
+    Returns: None
     '''
     assert data.shape[0] > 0
 
@@ -67,10 +86,11 @@ def test_train_test_labels(data):
     Use a KL divergence test (using a kl_threshold) to determine similarity
     metric ss this is a binary problem we can be quite discriminatory here
 
-    input:
-        data: pandas dataframe. Test data
-    output:
-        None
+    Argument:
+        data: Pandas dataframe
+        Development data
+
+    Returns: None
     '''
     train, test = train_test_split(data, test_size=0.20, random_state=831)
 
@@ -84,11 +104,12 @@ def test_binariser(data):
     '''Run a series of tests on the binariser in both train and inference mode
     In this instance we apply to the entire development dataset
 
-    input:
-        data: pandas dataframe. Test data
-    output:
-        None
-    '''
+     Argument:
+        data: Pandas dataframe
+        Development data
+
+    Returns: None
+   '''
     cat_features = [
         "workclass",
         "education",
@@ -131,11 +152,12 @@ def test_train_model(data):
     Check that the train_model function returns a viable model
     In this instance we apply to the entire development dataset
 
-    input:
-        data: pandas dataframe. Test data
-    output:
-        None
-    '''
+    Argument:
+        data: Pandas dataframe
+        Development data
+
+    Returns: None
+   '''
 
     # Preprocess data
     cat_features = [

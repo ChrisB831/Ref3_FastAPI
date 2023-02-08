@@ -1,0 +1,33 @@
+##########
+# PYTEST #
+##########
+Call all
+    python -m pytest -vv
+
+Call individually
+    python -m pytest ./test/test_app.py -vv
+    python -m pytest ./test/test_model_build -vv
+
+
+##########
+# FLAKE8 #
+##########
+Call all
+    flake8
+
+Call individually
+    flake8 ./tests/test_model_build.py
+    flake8 ./tests/test_app.py
+
+    flake8 ./ml/model.py
+    flake8 ./ml/data.py
+
+    flake8 ./main.py
+    flake8 ./train_model.py
+
+
+########
+# MISC #
+########
+uvicorn main:app --reload
+python train_model.py
