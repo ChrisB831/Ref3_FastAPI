@@ -34,7 +34,7 @@ def train_model(X_train, y_train):
         random_state=831, max_depth=5, n_estimators=50
     )
     rfc.fit(X_train, y_train)
-    return(rfc)
+    return rfc
 
 
 def save_model_artifacts(pth, model, encoder, lb):
@@ -106,7 +106,7 @@ def inference(model, X):
         preds : np.array
             Predictions from the model.
     '''
-    return(model.predict(X))
+    return model.predict(X)
 
 
 def compute_model_metrics(y, preds):
