@@ -60,7 +60,7 @@ def test_POST_incorrect_rersponse_body():
     Returns: None
     '''
 
-    # Create the correct request body
+    # Create the request body
     data = {
         "age": "thirty-nine",      # Age incorrectly specified as a string
         "workclass": "State-gov",
@@ -88,7 +88,7 @@ def test_POST_incorrect_rersponse_body():
 def test_POST_request_predict_zero():
     '''Test a POST request to the "/inference" end point....
     1) Successfully executes
-    2) The test request body result in a prediction of 0
+    2) The test request body results in a prediction of 0
 
     Arguments: None
     Returns: None
