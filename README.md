@@ -6,7 +6,9 @@ Here a random forest classifier predicting higher salary is developed on publicl
 * A series of units test are applied, which along with Flake8 are used the test the validity of the code before deployment
 * The model is deployed using the FastAPI package. A further series of test asses the robustness of the AP
 * The API is deployed using Heroku
-* Finally GitHub Actions are utilised, which along with Heroku ensure full CI?CD capability
+* Finally GitHub Actions are utilised, which along with Heroku ensure full CI/CD capability
+
+Although an ML model is built, it is trivial in design and is not the focus of this MLOps based repo
 
 
 
