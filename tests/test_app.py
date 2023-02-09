@@ -2,10 +2,10 @@
 Test script for the API defined in ./main.py
 
 AUTHOR: Chris Bonham
-DATE:   XXXXXXXXXXXXXXXXXXXXX February 2023
+DATE:   9th February 2023
 
 This test script is called automatically when the code is pushed to the
-remote repo XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+remote repo https://github.com/ChrisB831/p3.git
 
 To run in isolation
 1) Go to the project root

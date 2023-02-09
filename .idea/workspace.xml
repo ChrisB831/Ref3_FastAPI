@@ -8,15 +8,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/live_post.py" beforeDir="false" afterPath="$PROJECT_DIR$/live_post.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/data.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model_card.md" beforeDir="false" afterPath="$PROJECT_DIR$/model_card.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/raw_data/census_original_v1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/raw_data/census_with_space_v2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/Example cont.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/screenshots/example_cont.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshots/Example.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/screenshots/example.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_model_build.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_model_build.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

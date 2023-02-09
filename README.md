@@ -1,14 +1,26 @@
-# XXX
+# Overview
+Here a random forest classifier predicting higher salary is developed on publicly available Census Bureau data. 
+
+* Model performance is assessed acorss the entire test dataset along with individual slices
+* A bias audit is conducted using Aequitas
+* A series of units test are applied, which along with Flake8 are used the test the validity of the code before deployment
+* The model is deployed using the FastAPI package. A further series of test asses the robustness of the AP
+* The API is deployed using Heroku
+* Finally GitHub Actions are utilised, which along with Heroku ensure full CI?CD capability
 
 
-## Overview
+
+# Repo location
+The Githun repo is located at https://github.com/ChrisB831/p3.git
 
 
-## Repo location
+
+# Development data
+The data is based upon an extract of 32, 561 records from the 1994 US census (see [Link](https://archive.ics.uci.edu/ml/datasets/census+income
 
 
 
-## Project structure
+# Project structure
 ```
 <content_root>
 ├── ml
@@ -60,37 +72,13 @@ where
 | /screenshots/example_cont.PNG | Screenshot of FastAPI docs of POST request with response body |
 | /screenshots/live_get.PNG | Screenshot of of Heroku GET request |
 | /screenshots/live_post.PNG | Screenshot of of Heroku POST request |
-
-
-
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-
-
-
-|
-| :-------------------------------- | :-----------: | :-------------------------------- |
-| data                              |   directory   | development data                  |
-| images\eda                        |   directory   | EDA output                        |
-| images\results                    |   directory   | model performance analysis output |
-| logs                              |   directory   | test logs                         |
-| models                            |   directory   | saved models                      |
-| churn_library.py                  | Python module | model build module                |
-| churn_script_logging_and_tests.py | Python module | module build module test script   |
-| LICENSE                           | licence file  | licence T&Cs                      |
-| README.me                         | markdown file | this project readme               |
-| requirements.txt                  |   text file   | project dependencies              |
+| /tests/test_app.py | Test script for the API defined in ./main.py |
+| /tests/test_model_build.py | Test script for the model build defined in ./train_model.py |
+| aequitas_bias_audit.ipynb | Jupyter notebook containing bias study code using Aequitas |
+| live_post.py| Test a POST request to the live app hosted by Heroku |
+| main.py | FastAPI app functionality |
+| model_card.md | Model card detailing creation, use, and the shortcomings of the model |
+| Procfile | Heroku Procfile |
+| README.md | This readme |
+| requirements.txt | Project dependencies |
+| train_model.py | Core functionality to train, assess and save model |

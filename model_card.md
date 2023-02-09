@@ -1,5 +1,6 @@
 # Model Card
 For additional information see the Model Card paper: https://arxiv.org/pdf/1810.03993.pdf
+For the Github repo see https://github.com/ChrisB831/p3.git
 
 
 

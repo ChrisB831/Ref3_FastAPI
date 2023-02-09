@@ -1,6 +1,6 @@
 '''
 Test a POST request to the "https://p3-app.herokuapp.com/inference"
-end point....
+end point
 
 AUTHOR: Chris Bonham
 DATE:   9th February 2023
