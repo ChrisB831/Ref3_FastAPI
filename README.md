@@ -26,12 +26,12 @@ The data is based upon an extract of 32, 561 records from the 1994 US census (se
 ├── ml
 │	├── __init__.py
 │	├── data.py
-│   └── model.py
+│ └── model.py
 ├── model_artifacts
 │	├── encoder.pk
 │	├── lb.pk
 │	├── model.pk
-│   └── slice_output.txt
+│ └── slice_output.txt
 ├── raw_data
 │   └── census.csv
 ├── screenshots
@@ -40,10 +40,10 @@ The data is based upon an extract of 32, 561 records from the 1994 US census (se
 │	├── example.PNG
 │	├── example_cont.PNG
 │	├── live_get.PNG
-│   └── live_post.PNG
+│ └── live_post.PNG
 ├── tests
 │	├── test_app.py
-│   └── test_model_build.py
+│ └── test_model_build.py
 ├── aequitas_bias_audit.ipynb
 ├── live_post.py
 ├── main.py
