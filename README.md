@@ -12,11 +12,6 @@ Although an ML model is built, it is trivial in design and is not the focus of t
 
 
 
-# Repo location
-The Githun repo is located at https://github.com/ChrisB831/p3.git
-
-
-
 # Development data
 The data is based upon an extract of 32, 561 records from the 1994 US census (see [Link](https://archive.ics.uci.edu/ml/datasets/census+income
 
